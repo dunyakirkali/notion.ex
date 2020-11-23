@@ -1,0 +1,37 @@
+{
+	"results": [
+		{
+		  "object": "user",
+		  "id": "01da9b00-e400-4959-91ce-af55307647e5",
+		  "type": "person",
+		  "name": "Avocado Lovelace",
+		  "email": "avo@example.org",
+		  "avatar_url": "https://secure.notion-static.com/e6a352a8-8381-44d0-a1dc-9ed80e62b53d.jpg",
+		  "groups": [
+		    {
+		      "object": "group",
+		      "id": "ef7f4c7e-8ce3-4add-9fc1-a34e078eb9c0",
+		      "name": "Product"
+		    }
+		  ]
+		},
+		{
+		  "object": "user",
+		  "id": "01da9b00-e400-4959-91ce-af55307647e5",
+		  "type": "person",
+		  "name": "Avocado Lovelace",
+		  "email": "avo@example.org",
+		  "avatar_url": "https://secure.notion-static.com/e6a352a8-8381-44d0-a1dc-9ed80e62b53d.jpg",
+		  "groups": [
+		    {
+		      "object": "group",
+		      "id": "ef7f4c7e-8ce3-4add-9fc1-a34e078eb9c0",
+		      "name": "Product"
+		    }
+		  ]
+		}
+	],
+	"pagination": {
+		"next_cursor": "MTY3NDE4NGYtZTdiYy00NzFlLWE0NjctODcxOTIyYWU3ZmM3"
+	}
+}
