@@ -7,7 +7,9 @@ defmodule Notion.MixProject do
       version: "0.1.0",
       elixir: "~> 1.10",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+      test_coverage: [tool: ExCoveralls],
+      preferred_cli_env: [coveralls: :test, "coveralls.detail": :test, "coveralls.post": :test, "coveralls.html": :test]
     ]
   end
 
@@ -23,7 +25,8 @@ defmodule Notion.MixProject do
     [
       {:tesla, "~> 1.4.0"},
       {:hackney, "~> 1.16.0"},
-      {:jason, ">= 1.0.0"}
+      {:jason, ">= 1.0.0"},
+      {:excoveralls, "~> 0.13.3", only: :test},
     ]
   end
 end
