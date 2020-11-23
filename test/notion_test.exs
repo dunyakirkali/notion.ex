@@ -18,6 +18,12 @@ defmodule NotionTest do
         |> Jason.decode!()
         |> json()
 
+      %{method: :get, url: "https://api.notion.com/v1/pages/b55c9c91-384d-452b-81db-d1ef79372b75"} ->
+        "test/fixtures/pages/retrieve_page.json"
+        |> File.read!()
+        |> Jason.decode!()
+        |> json()
+
     end)
 
     :ok
@@ -33,5 +39,11 @@ defmodule NotionTest do
     assert {:ok, %Tesla.Env{} = env} = Notion.list_users()
     assert env.status == 200
     assert Enum.count(env.body["results"]) == 2
+  end
+
+  test "retrieve_page" do
+    assert {:ok, %Tesla.Env{} = env} = Notion.retrieve_page("b55c9c91-384d-452b-81db-d1ef79372b75")
+    assert env.status == 200
+    assert env.body["object"] == "page"
   end
 end

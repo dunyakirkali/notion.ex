@@ -12,4 +12,8 @@ defmodule Notion do
   def list_users() do
     get("/users")
   end
+
+  def retrieve_page(page_id) do
+    get("/pages/" <> page_id)
+  end
 end
