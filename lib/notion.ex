@@ -1,9 +1,11 @@
 defmodule Notion do
   use Tesla
 
+  alias Notion.User
+
   plug(Tesla.Middleware.BaseUrl, "https://api.notion.com/v1")
   plug(Tesla.Middleware.BasicAuth, username: "user", password: "pass")
-  plug(Tesla.Middleware.JSON)
+  plug(Tesla.Middleware.JSON, engine_opts: [keys: :atoms])
 
   def retrieve_user(user_id) do
     get("/users/" <> user_id)

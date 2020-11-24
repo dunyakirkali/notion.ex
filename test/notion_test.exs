@@ -4,6 +4,9 @@ defmodule NotionTest do
 
   import Tesla.Mock
 
+  alias Notion.User
+  alias Notion.Page
+
   setup do
     mock(fn
       %{method: :get, url: "https://api.notion.com/v1/users/01da9b00-e400-4959-91ce-af55307647e5"} ->
@@ -32,21 +35,23 @@ defmodule NotionTest do
     assert {:ok, %Tesla.Env{} = env} =
              Notion.retrieve_user("01da9b00-e400-4959-91ce-af55307647e5")
 
+    user = struct(User, env.body)
     assert env.status == 200
-    assert env.body["email"] == "avo@example.org"
+    assert user.email == "avo@example.org"
   end
 
   test "list_users" do
     assert {:ok, %Tesla.Env{} = env} = Notion.list_users()
     assert env.status == 200
-    assert Enum.count(env.body["results"]) == 2
+    assert Enum.count(env.body[:results]) == 2
   end
 
   test "retrieve_page" do
     assert {:ok, %Tesla.Env{} = env} =
              Notion.retrieve_page("b55c9c91-384d-452b-81db-d1ef79372b75")
 
+    page = struct(Page, env.body)
     assert env.status == 200
-    assert env.body["object"] == "page"
+    assert page.object == "page"
   end
 end
