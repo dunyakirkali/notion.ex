@@ -22,4 +22,8 @@ defmodule Notion do
   def delete_page(page_id) do
     delete("/pages/" <> page_id)
   end
+
+  def retrieve_database(database_id) do
+    get("/databases/" <> database_id)
+  end
 end

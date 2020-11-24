@@ -32,6 +32,12 @@ defmodule NotionTest do
         |> File.read!()
         |> Jason.decode!()
         |> json()
+
+      %{method: :get, url: "https://api.notion.com/v1/databases/668d797c-76fa-4934-9b05-ad288df2d136"} ->
+        "test/fixtures/databases/retrieve_database.json"
+        |> File.read!()
+        |> Jason.decode!()
+        |> json()
     end)
 
     :ok
@@ -68,5 +74,14 @@ defmodule NotionTest do
     page = struct(Page, env.body)
     assert env.status == 200
     assert page.object == "page"
+  end
+
+  test "retrieve_database" do
+    assert {:ok, %Tesla.Env{} = env} =
+             Notion.retrieve_database("668d797c-76fa-4934-9b05-ad288df2d136")
+
+    page = struct(Page, env.body)
+    assert env.status == 200
+    assert page.object == "database"
   end
 end

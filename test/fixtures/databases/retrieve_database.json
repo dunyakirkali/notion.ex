@@ -1,0 +1,75 @@
+{
+  "object": "database",
+  "id": "668d797c-76fa-4934-9b05-ad288df2d136",
+  "title": "Grocery list",
+  "properties": {
+    "Name": {
+      "type": "title",
+      "title": {}
+    },
+    "Description": {
+      "type": "text",
+      "text": {}
+    },
+    "In stock": {
+      "type": "checkbox",
+      "checkbox": {}
+    },
+    "Food group": {
+      "type": "select",
+      "select": {
+        "options": [
+          {"name": "🥦Vegetable", "color": "green"},
+          {"name": "🍎Fruit", "color": "red"},
+          {"name": "💪Protein", "color": "yellow"}
+        ]
+      }
+    },
+    "Price": {
+      "type": "number",
+      "number": {
+        "format": "dollar"
+      }
+    },
+    "Cost of next trip": {
+      "type": "formula",
+      "formula": {
+        "value": "if(prop(\"In stock\"), 0, prop(\"Price\"))"
+      }
+    },
+    "Last ordered": {
+      "type": "date",
+      "date": {
+        "precision": "date",
+        "range": false
+      }
+    },
+    "Meals": {
+      "type": "relation",
+      "relation": {"database": "668d797c-76fa-4934-9b05-ad288df2d136", "synced_property_name": null}
+    },
+    "Number of meals": {
+      "type": "rollup",
+      "rollup": {"relation_property_name": "Meals", "rollup_property_name": "Name", "function": "count"}
+    },
+    "Store availability": {
+      "type": "multi_select",
+      "multi_select": {
+        "options": [
+          {"name": "Duc Loi Market", "color": "blue"},
+          {"name": "Rainbow Grocery", "color": "purple"},
+          {"name": "Nijiya Market", "color": "yellow"},
+          {"name": "Gus's Community Market", "color": "green"}
+        ]
+      }
+    },
+    "+1": {
+      "type": "people",
+      "people": {}
+    },
+    "Photo": {
+      "type": "file",
+      "file": {}
+    }
+  }
+}
