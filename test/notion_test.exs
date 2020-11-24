@@ -26,6 +26,12 @@ defmodule NotionTest do
         |> File.read!()
         |> Jason.decode!()
         |> json()
+
+      %{method: :delete, url: "https://api.notion.com/v1/pages/b55c9c91-384d-452b-81db-d1ef79372b75"} ->
+        "test/fixtures/pages/delete_page.json"
+        |> File.read!()
+        |> Jason.decode!()
+        |> json()
     end)
 
     :ok
@@ -49,6 +55,15 @@ defmodule NotionTest do
   test "retrieve_page" do
     assert {:ok, %Tesla.Env{} = env} =
              Notion.retrieve_page("b55c9c91-384d-452b-81db-d1ef79372b75")
+
+    page = struct(Page, env.body)
+    assert env.status == 200
+    assert page.object == "page"
+  end
+
+  test "delete_page" do
+    assert {:ok, %Tesla.Env{} = env} =
+             Notion.delete_page("b55c9c91-384d-452b-81db-d1ef79372b75")
 
     page = struct(Page, env.body)
     assert env.status == 200

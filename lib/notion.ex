@@ -18,4 +18,8 @@ defmodule Notion do
   def retrieve_page(page_id) do
     get("/pages/" <> page_id)
   end
+
+  def delete_page(page_id) do
+    delete("/pages/" <> page_id)
+  end
 end
