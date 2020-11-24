@@ -38,6 +38,12 @@ defmodule NotionTest do
         |> File.read!()
         |> Jason.decode!()
         |> json()
+
+      %{method: :get, url: "https://api.notion.com/v1/databases"} ->
+        "test/fixtures/databases/list_databases.json"
+        |> File.read!()
+        |> Jason.decode!()
+        |> json()
     end)
 
     :ok
@@ -83,5 +89,13 @@ defmodule NotionTest do
     page = struct(Page, env.body)
     assert env.status == 200
     assert page.object == "database"
+  end
+
+  test "list_databases" do
+    assert {:ok, %Tesla.Env{} = env} =
+             Notion.list_databases()
+
+   assert env.status == 200
+   assert Enum.count(env.body[:results]) == 2
   end
 end

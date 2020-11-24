@@ -1,8 +1,6 @@
 defmodule Notion do
   use Tesla
 
-  alias Notion.User
-
   plug(Tesla.Middleware.BaseUrl, "https://api.notion.com/v1")
   plug(Tesla.Middleware.BasicAuth, username: "user", password: "pass")
   plug(Tesla.Middleware.JSON, engine_opts: [keys: :atoms])
@@ -25,5 +23,9 @@ defmodule Notion do
 
   def retrieve_database(database_id) do
     get("/databases/" <> database_id)
+  end
+
+  def list_databases() do
+    get("/databases")
   end
 end
