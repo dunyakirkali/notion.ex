@@ -11,6 +11,6 @@ defmodule Notion.Page do
           object: String.t(),
           id: String.t(),
           database: String.t() | nil,
-          archived: Bool.t()
+          archived: boolean()
         }
 end
