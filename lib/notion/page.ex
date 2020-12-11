@@ -1,5 +1,7 @@
 defmodule Notion.Page do
   # @enforce_keys [:object]
+
+  @derive Jason.Encoder
   defstruct object: "page",
             id: nil,
             database: nil

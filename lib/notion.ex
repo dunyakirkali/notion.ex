@@ -17,6 +17,10 @@ defmodule Notion do
     get("/users")
   end
 
+  def create_page(page) do
+    post("/pages", page)
+  end
+
   def retrieve_page(page_id) do
     get("/pages/" <> page_id)
   end
