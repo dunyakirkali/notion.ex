@@ -27,13 +27,19 @@ defmodule NotionTest do
         |> Jason.decode!()
         |> json()
 
-      %{method: :delete, url: "https://api.notion.com/v1/pages/b55c9c91-384d-452b-81db-d1ef79372b75"} ->
+      %{
+        method: :delete,
+        url: "https://api.notion.com/v1/pages/b55c9c91-384d-452b-81db-d1ef79372b75"
+      } ->
         "test/fixtures/pages/delete_page.json"
         |> File.read!()
         |> Jason.decode!()
         |> json()
 
-      %{method: :get, url: "https://api.notion.com/v1/databases/668d797c-76fa-4934-9b05-ad288df2d136"} ->
+      %{
+        method: :get,
+        url: "https://api.notion.com/v1/databases/668d797c-76fa-4934-9b05-ad288df2d136"
+      } ->
         "test/fixtures/databases/retrieve_database.json"
         |> File.read!()
         |> Jason.decode!()
@@ -74,8 +80,7 @@ defmodule NotionTest do
   end
 
   test "delete_page" do
-    assert {:ok, %Tesla.Env{} = env} =
-             Notion.delete_page("b55c9c91-384d-452b-81db-d1ef79372b75")
+    assert {:ok, %Tesla.Env{} = env} = Notion.delete_page("b55c9c91-384d-452b-81db-d1ef79372b75")
 
     page = struct(Page, env.body)
     assert env.status == 200
@@ -92,10 +97,9 @@ defmodule NotionTest do
   end
 
   test "list_databases" do
-    assert {:ok, %Tesla.Env{} = env} =
-             Notion.list_databases()
+    assert {:ok, %Tesla.Env{} = env} = Notion.list_databases()
 
-   assert env.status == 200
-   assert Enum.count(env.body[:results]) == 2
+    assert env.status == 200
+    assert Enum.count(env.body[:results]) == 2
   end
 end
