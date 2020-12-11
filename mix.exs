@@ -32,7 +32,8 @@ defmodule Notion.MixProject do
       {:hackney, "~> 1.16.0"},
       {:jason, ">= 1.0.0"},
       {:excoveralls, "~> 0.13.3", only: :test},
-      {:dialyxir, "~> 1.0", only: [:dev], runtime: false}
+      {:dialyxir, "~> 1.0", only: [:dev], runtime: false},
+      {:enum_type, "~> 1.1.3"}
     ]
   end
 end
