@@ -2,8 +2,8 @@ defmodule Notion.Sort do
   import EnumType
 
   defenum Direction do
-    value Ascending, "ascending"
-    value Descending, "descending"
+    value(Ascending, "ascending")
+    value(Descending, "descending")
   end
 
   @derive Jason.Encoder
