@@ -1,4 +1,8 @@
 defmodule Notion.Page do
+  @moduledoc """
+  Page
+  """
+
   # @enforce_keys [:object]
 
   @derive Jason.Encoder

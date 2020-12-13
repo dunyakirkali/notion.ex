@@ -1,4 +1,8 @@
 defmodule Notion.Sort do
+  @moduledoc """
+  Sort
+  """
+
   import EnumType
 
   defenum Direction do

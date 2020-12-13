@@ -1,4 +1,8 @@
 defmodule Notion do
+  @moduledoc """
+  Notion
+  """
+
   use Tesla
 
   plug(Tesla.Middleware.BaseUrl, "https://api.notion.com/v1")
@@ -31,6 +35,10 @@ defmodule Notion do
 
   def retrieve_database(database_id, query \\ []) do
     get("/databases/" <> database_id, query: query)
+  end
+
+  def query_database(database_id, query \\ []) do
+    post("/databases/" <> database_id <> "/query", query: query)
   end
 
   def list_databases(query \\ []) do

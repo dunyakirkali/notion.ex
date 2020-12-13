@@ -1,4 +1,8 @@
 defmodule Notion.Group do
+  @moduledoc """
+  Group
+  """
+
   # @enforce_keys [:object]
   defstruct object: "group",
             id: nil,
