@@ -32,7 +32,7 @@ defmodule Notion.Annotation do
             italic: nil,
             strikethrough: nil,
             underline: nil,
-            code: nil
+            code: nil,
             color: nil
 
   @type t() :: %__MODULE__{
