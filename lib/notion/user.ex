@@ -3,8 +3,7 @@ defmodule Notion.User do
   User
   """
 
-  alias Notion.Person
-  alias Notion.Bot
+  alias Notion.{Bot, Person}
 
   @enforce_keys [:object]
   defstruct object: "user",
