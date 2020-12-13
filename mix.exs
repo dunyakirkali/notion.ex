@@ -14,7 +14,8 @@ defmodule Notion.MixProject do
         "coveralls.detail": :test,
         "coveralls.post": :test,
         "coveralls.html": :test
-      ]
+      ],
+      aliases: aliases()
     ]
   end
 
@@ -35,6 +36,12 @@ defmodule Notion.MixProject do
       {:dialyxir, "~> 1.0", only: [:dev], runtime: false},
       {:enum_type, "~> 1.1.3"},
       {:credo, "~> 1.5", only: [:dev, :test], runtime: false}
+    ]
+  end
+
+  defp aliases do
+    [
+      code_quality: ["format", "credo --strict", "dialyzer"]
     ]
   end
 end
