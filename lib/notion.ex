@@ -13,6 +13,8 @@ defmodule Notion do
 
   plug(Tesla.Middleware.JSON, engine_opts: [keys: :atoms])
 
+  # User
+
   def retrieve_user(user_id, query \\ []) do
     get("/users/" <> user_id, query: query)
   end
@@ -20,6 +22,8 @@ defmodule Notion do
   def list_users(query \\ []) do
     get("/users", query: query)
   end
+
+  # Page
 
   def create_page(page) do
     post("/pages", page)
@@ -33,15 +37,13 @@ defmodule Notion do
     delete("/pages/" <> page_id)
   end
 
+  # Database
+
   def retrieve_database(database_id, query \\ []) do
     get("/databases/" <> database_id, query: query)
   end
 
   def query_database(database_id, query \\ []) do
-    post("/databases/" <> database_id <> "/query", query: query)
-  end
-
-  def list_databases(query \\ []) do
-    get("/databases", query: query)
+    post("/databases/" <> database_id <> "/query", query)
   end
 end

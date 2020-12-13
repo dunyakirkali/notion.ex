@@ -4,7 +4,7 @@ defmodule NotionTest do
 
   import Tesla.Mock
 
-  alias Notion.{Page, User}
+  alias Notion.{Page, Query, User}
 
   setup do
     mock(fn
@@ -50,8 +50,8 @@ defmodule NotionTest do
         |> Jason.decode!()
         |> json()
 
-      %{method: :get, url: "https://api.notion.com/v1/databases"} ->
-        "test/fixtures/databases/list_databases.json"
+      %{method: :post, url: "https://api.notion.com/v1/databases/668d797c-76fa-4934-9b05-ad288df2d136/query"} ->
+        "test/fixtures/databases/query_database.json"
         |> File.read!()
         |> Jason.decode!()
         |> json()
@@ -110,10 +110,12 @@ defmodule NotionTest do
     assert page.object == "database"
   end
 
-  test "list_databases" do
-    assert {:ok, %Tesla.Env{} = env} = Notion.list_databases()
+  test "query_database" do
+    query = %Query{}
+    assert {:ok, %Tesla.Env{} = env} =
+             Notion.query_database("668d797c-76fa-4934-9b05-ad288df2d136", query)
 
     assert env.status == 200
-    assert Enum.count(env.body[:results]) == 2
+    assert Enum.count(env.body[:results]) == 1
   end
 end
