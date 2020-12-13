@@ -4,8 +4,7 @@ defmodule NotionTest do
 
   import Tesla.Mock
 
-  alias Notion.Page
-  alias Notion.User
+  alias Notion.{Page, User}
 
   setup do
     mock(fn

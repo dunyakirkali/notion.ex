@@ -3,8 +3,7 @@ defmodule Notion.Query do
   Query
   """
 
-  alias Notion.Filter
-  alias Notion.Sort
+  alias Notion.{Filter, Sort}
 
   @derive Jason.Encoder
 
