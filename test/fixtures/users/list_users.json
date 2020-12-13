@@ -2,36 +2,23 @@
 	"results": [
 		{
 		  "object": "user",
-		  "id": "01da9b00-e400-4959-91ce-af55307647e5",
+		  "id": "d40e767c-d7af-4b18-a86d-55c61f1e39a4",
 		  "type": "person",
+			"person": {
+				"email": "avo@example.org"
+			},
 		  "name": "Avocado Lovelace",
-		  "email": "avo@example.org",
-		  "avatar_url": "https://secure.notion-static.com/e6a352a8-8381-44d0-a1dc-9ed80e62b53d.jpg",
-		  "groups": [
-		    {
-		      "object": "group",
-		      "id": "ef7f4c7e-8ce3-4add-9fc1-a34e078eb9c0",
-		      "name": "Product"
-		    }
-		  ]
+		  "avatar_url": "https://secure.notion-static.com/e6a352a8-8381-44d0-a1dc-9ed80e62b53d.jpg"
 		},
 		{
 		  "object": "user",
-		  "id": "01da9b00-e400-4959-91ce-af55307647e5",
-		  "type": "person",
-		  "name": "Avocado Lovelace",
-		  "email": "avo@example.org",
-		  "avatar_url": "https://secure.notion-static.com/e6a352a8-8381-44d0-a1dc-9ed80e62b53d.jpg",
-		  "groups": [
-		    {
-		      "object": "group",
-		      "id": "ef7f4c7e-8ce3-4add-9fc1-a34e078eb9c0",
-		      "name": "Product"
-		    }
-		  ]
+		  "id": "9a3b5ae0-c6e6-482d-b0e1-ed315ee6dc57",
+		  "type": "bot",
+			"bot": {},
+		  "name": "Doug Engelbot",
+		  "avatar_url": "https://secure.notion-static.com/6720d746-3402-4171-8ebb-28d15144923c.jpg"
 		}
 	],
-	"pagination": {
-		"next_cursor": "MTY3NDE4NGYtZTdiYy00NzFlLWE0NjctODcxOTIyYWU3ZmM3"
-	}
+	"next_cursor": "fe2cc560-036c-44cd-90e8-294d5a74cebc",
+	"has_more": true
 }

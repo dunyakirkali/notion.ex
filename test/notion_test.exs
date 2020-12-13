@@ -66,7 +66,7 @@ defmodule NotionTest do
 
     user = struct(User, env.body)
     assert env.status == 200
-    assert user.email == "avo@example.org"
+    assert user.person.email == "avo@example.org"
   end
 
   test "list_users" do
