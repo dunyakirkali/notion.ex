@@ -50,7 +50,10 @@ defmodule NotionTest do
         |> Jason.decode!()
         |> json()
 
-      %{method: :post, url: "https://api.notion.com/v1/databases/668d797c-76fa-4934-9b05-ad288df2d136/query"} ->
+      %{
+        method: :post,
+        url: "https://api.notion.com/v1/databases/668d797c-76fa-4934-9b05-ad288df2d136/query"
+      } ->
         "test/fixtures/databases/query_database.json"
         |> File.read!()
         |> Jason.decode!()
@@ -112,6 +115,7 @@ defmodule NotionTest do
 
   test "query_database" do
     query = %Query{}
+
     assert {:ok, %Tesla.Env{} = env} =
              Notion.query_database("668d797c-76fa-4934-9b05-ad288df2d136", query)
 
