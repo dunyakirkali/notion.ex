@@ -33,7 +33,8 @@ defmodule Notion.MixProject do
       {:jason, ">= 1.0.0"},
       {:excoveralls, "~> 0.13.3", only: :test},
       {:dialyxir, "~> 1.0", only: [:dev], runtime: false},
-      {:enum_type, "~> 1.1.3"}
+      {:enum_type, "~> 1.1.3"},
+      {:credo, "~> 1.5", only: [:dev, :test], runtime: false}
     ]
   end
 end
