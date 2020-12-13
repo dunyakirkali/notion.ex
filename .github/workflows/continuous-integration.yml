@@ -16,3 +16,19 @@ jobs:
           elixir-version: ${{matrix.elixir}}
       - run: mix deps.get
       - run: mix test
+  dialyzer:
+    runs-on: ubuntu-latest
+    name: Dialyzer
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-elixir@v1
+      - run: mix deps.get
+      - run: mix dialyzer
+  credo:
+    runs-on: ubuntu-latest
+    name: Credo
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-elixir@v1
+      - run: mix deps.get
+      - run: mix credo --strict
