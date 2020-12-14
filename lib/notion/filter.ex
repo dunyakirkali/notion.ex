@@ -6,8 +6,8 @@ defmodule Notion.Filter do
   alias Notion.TextFilter
 
   @derive Jason.Encoder
-  defstruct or: nil,
-            and: nil
+  defstruct or: [],
+            and: []
 
   @type t() :: %__MODULE__{
           or: [String.t()],
