@@ -15,7 +15,8 @@ defmodule Notion.MixProject do
         "coveralls.post": :test,
         "coveralls.html": :test
       ],
-      aliases: aliases()
+      aliases: aliases(),
+      dialyzer: [plt_add_apps: [:mix]]
     ]
   end
 
