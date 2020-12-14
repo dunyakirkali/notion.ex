@@ -1,5 +1,8 @@
 # Notion
 
+![Code Quality](https://github.com/dunyakirkali/notion.ex/workflows/Code%20Quality/badge.svg)
+![Continuous Integration](https://github.com/dunyakirkali/notion.ex/workflows/Continuous%20Integration/badge.svg)
+
 **TODO: Add description**
 
 ## Documentation
