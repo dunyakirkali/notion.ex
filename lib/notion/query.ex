@@ -5,8 +5,6 @@ defmodule Notion.Query do
 
   alias Notion.{Filter, Sort, PropertyFilter}
 
-  @derive Jason.Encoder
-
   defstruct [:filter, :sorts, :start_cursor]
 
   @type t() :: %__MODULE__{

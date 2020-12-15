@@ -3,7 +3,6 @@ defmodule Notion.PeopleFilter do
   PeopleFilter
   """
 
-  @derive Jason.Encoder
   defstruct contains: nil,
             does_not_contain: nil,
             is_empty: nil,
