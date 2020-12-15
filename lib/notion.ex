@@ -6,6 +6,7 @@ defmodule Notion do
   use Tesla
 
   plug(Tesla.Middleware.BaseUrl, "https://api.notion.com/v1")
+  plug(Tesla.Middleware.Timeout, timeout: 10_000)
 
   plug(Tesla.Middleware.Headers, [
     {"Authorization", "Bearer #{Application.fetch_env!(:notion, :api_key)}"}
