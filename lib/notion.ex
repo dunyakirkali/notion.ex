@@ -52,7 +52,7 @@ end
 defimpl Jason.Encoder, for: [Notion.Query, Notion.PeopleFilter] do
   def encode(value, opts) do
     value
-    |> Map.from_struct
+    |> Map.from_struct()
     |> Enum.reject(fn {_, v} ->
       v == nil
     end)
