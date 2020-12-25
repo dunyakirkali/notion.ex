@@ -7,7 +7,7 @@ defmodule NotionTest do
   alias Notion.{Page, Query, User}
 
   setup do
-    mock(fn
+    mock_global(fn
       %{method: :get, url: "https://api.notion.com/v1/users/01da9b00-e400-4959-91ce-af55307647e5"} ->
         "test/fixtures/users/retrieve_user.json"
         |> File.read!()
