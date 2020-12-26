@@ -3,7 +3,7 @@ defmodule Notion.Query do
   Query
   """
 
-  alias Notion.{Filter, Sort, PropertyFilter}
+  alias Notion.{Filter, PropertyFilter, Sort}
 
   defstruct [:filter, :sorts, :start_cursor]
 
