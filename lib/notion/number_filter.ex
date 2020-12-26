@@ -14,13 +14,13 @@ defmodule Notion.NumberFilter do
             is_not_empty: nil
 
   @type t() :: %__MODULE__{
-          equals: integer(),
-          does_not_equal: integer(),
-          greater_than: integer(),
-          less_than: integer(),
-          greater_than_or_equal_to: integer(),
-          less_than_or_equal_to: integer(),
-          is_empty: integer(),
-          is_not_empty: integer()
+          equals: integer() | float(),
+          does_not_equal: integer() | float(),
+          greater_than: integer() | float(),
+          less_than: integer() | float(),
+          greater_than_or_equal_to: integer() | float(),
+          less_than_or_equal_to: integer() | float(),
+          is_empty: integer() | float(),
+          is_not_empty: integer() | float()
         }
 end
