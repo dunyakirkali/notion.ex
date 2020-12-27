@@ -13,3 +13,13 @@ defmodule Notion.Query do
           start_cursor: String.t() | nil
         }
 end
+
+defimpl Jason.Encoder, for: Notion.Query do
+  def encode(value, opts) do
+    value
+    |> Map.from_struct()
+    |> Enum.reject(fn {_, v} -> is_nil(v) end)
+    |> Enum.into(%{})
+    |> Jason.Encode.map(opts)
+  end
+end

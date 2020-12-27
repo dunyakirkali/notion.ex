@@ -15,3 +15,13 @@ defmodule Notion.PeopleFilter do
           is_not_empty: boolean()
         }
 end
+
+defimpl Jason.Encoder, for: Notion.PeopleFilter do
+  def encode(value, opts) do
+    value
+    |> Map.from_struct()
+    |> Enum.reject(fn {_, v} -> is_nil(v) end)
+    |> Enum.into(%{})
+    |> Jason.Encode.map(opts)
+  end
+end

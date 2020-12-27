@@ -48,15 +48,3 @@ defmodule Notion do
     post("/databases/" <> database_id <> "/query", query)
   end
 end
-
-defimpl Jason.Encoder, for: [Notion.Query, Notion.PeopleFilter] do
-  def encode(value, opts) do
-    value
-    |> Map.from_struct()
-    |> Enum.reject(fn {_, v} ->
-      v == nil
-    end)
-    |> Enum.into(%{})
-    |> Jason.Encode.map(opts)
-  end
-end
