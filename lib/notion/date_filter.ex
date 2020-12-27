@@ -2,7 +2,7 @@ defmodule Notion.DateFilter do
   @moduledoc """
   DateFilter
   """
-  # TODO: (dunyakirkali) Implement pas/next items
+
   @derive Jason.Encoder
   defstruct equals: nil,
             before: nil,
