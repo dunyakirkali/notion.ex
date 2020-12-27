@@ -3,14 +3,14 @@ defmodule Notion.Filter do
   Filter
   """
 
-  alias Notion.TextFilter
+  alias Notion.PropertyFilter
 
   @derive Jason.Encoder
   defstruct or: [],
             and: []
 
   @type t() :: %__MODULE__{
-          or: [String.t()],
-          and: [TextFilter.t()]
+          or: [PropertyFilter],
+          and: [PropertyFilter]
         }
 end
