@@ -5,6 +5,13 @@ defmodule Notion.User do
 
   alias Notion.{Bot, Person}
 
+  import EnumType
+
+  defenum Type do
+    value(Person, "person")
+    value(Bot, "bot")
+  end
+
   @enforce_keys [:object]
   defstruct object: "user",
             id: nil,
@@ -17,9 +24,9 @@ defmodule Notion.User do
   @type t() :: %__MODULE__{
           object: String.t(),
           id: String.t(),
-          type: String.t(),
-          person: Person,
-          bot: Bot,
+          type: Type.t(),
+          person: Person.t() | nil,
+          bot: Bot.t() | nil,
           name: String.t(),
           avatar_url: String.t() | nil
         }
