@@ -3,7 +3,18 @@ defmodule Notion.PropertyFilter do
   PropertyFilter
   """
 
-  alias Notion.{PeopleFilter, TextFilter, NumberFilter, CheckboxFilter}
+  alias Notion.{
+    PeopleFilter,
+    TextFilter,
+    NumberFilter,
+    CheckboxFilter,
+    SelectFilter,
+    MultiSelectFilter,
+    DateFilter,
+    FilesFilter,
+    RelationFilter,
+    FormulaFilter
+  }
 
   @derive Jason.Encoder
   defstruct property: nil,
@@ -11,7 +22,20 @@ defmodule Notion.PropertyFilter do
             text: nil,
             number: nil,
             checkbox: nil,
-            people: nil
+            select: nil,
+            multi_select: nil,
+            date: nil,
+            people: nil,
+            files: nil,
+            url: nil,
+            email: nil,
+            phone: nil,
+            relation: nil,
+            formula: nil,
+            created_by: nil,
+            created_time: nil,
+            last_edited_by: nil,
+            last_edited_time: nil
 
   @type t() :: %__MODULE__{
           property: String.t(),
@@ -19,6 +43,19 @@ defmodule Notion.PropertyFilter do
           text: TextFilter.t(),
           number: NumberFilter.t(),
           checkbox: CheckboxFilter.t(),
-          people: PeopleFilter.t()
+          select: SelectFilter.t(),
+          multi_select: MultiSelectFilter.t(),
+          date: DateFilter.t(),
+          people: PeopleFilter.t(),
+          files: FilesFilter.t(),
+          url: TextFilter.t(),
+          email: TextFilter.t(),
+          phone: TextFilter.t(),
+          relation: RelationFilter.t(),
+          formula: FormulaFilter.t(),
+          created_by: PeopleFilter.t(),
+          created_time: DateFilter.t(),
+          last_edited_by: PeopleFilter.t(),
+          last_edited_time: DateFilter.t()
         }
 end
