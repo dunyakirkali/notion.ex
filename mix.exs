@@ -36,13 +36,14 @@ defmodule Notion.MixProject do
       {:excoveralls, "~> 0.13.3", only: :test},
       {:dialyxir, "~> 1.0", only: [:dev], runtime: false},
       {:enum_type, "~> 1.1.3"},
-      {:credo, "~> 1.5", only: [:dev, :test], runtime: false}
+      {:credo, "~> 1.5", only: [:dev, :test], runtime: false},
+      {:doctor, "~> 0.16.0", only: :dev}
     ]
   end
 
   defp aliases do
     [
-      code_quality: ["format", "credo --strict", "dialyzer"]
+      code_quality: ["credo --strict", "dialyzer", "doctor"]
     ]
   end
 end
