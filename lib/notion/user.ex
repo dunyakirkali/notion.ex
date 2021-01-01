@@ -26,7 +26,7 @@ defmodule Notion.User do
           id: String.t(),
           type: Type.t(),
           person: Person.t() | nil,
-#          bot: Bot.t() | nil,
+          #          bot: Bot.t() | nil,
           name: String.t(),
           avatar_url: String.t() | nil
         }

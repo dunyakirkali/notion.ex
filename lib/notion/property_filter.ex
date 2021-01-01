@@ -62,9 +62,9 @@ end
 defimpl Jason.Encoder, for: Notion.PropertyFilter do
   def encode(value, opts) do
     value
-    |> Map.from_struct
+    |> Map.from_struct()
     |> Enum.reject(fn {_, v} -> is_nil(v) end)
-    |> Map.new
+    |> Map.new()
     |> Jason.Encode.map(opts)
   end
 end
