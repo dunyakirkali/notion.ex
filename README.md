@@ -25,3 +25,57 @@ end
 Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
 and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
 be found at [https://hexdocs.pm/notion](https://hexdocs.pm/notion).
+
+## Configuration
+
+You will need to set the following configuration variables in your `config/config.exs` file:
+
+```elixir
+use Mix.Config
+
+config :notion, api_key: {:system, "NOTION_API_KEY"}
+```
+
+## Usage
+
+### Example
+
+```elixir
+sort = %Sort{
+  property: "Session",
+  direction: Sort.Direction.Ascending.value()
+}
+
+filter = %Filter{
+  and: [
+    %PropertyFilter{
+      property: "Owner",
+      people: %PeopleFilter{
+        contains: "9441a930-2a79-40c9-9c00-bd5ad030fd2f"
+      }
+    },
+    %PropertyFilter{
+      property: "Status",
+      select: %SelectFilter{
+        equals: "ToDo"
+      }
+    }
+  ]
+}
+ 
+query = %Query{
+  filter: filter,
+  sorts: [sort]
+}
+
+with {:ok, json_string} <- Jason.encode(query),
+     {:ok, payload} <- Jason.decode(json_string),
+     {:ok, %Tesla.Env{} = env} <- Notion.query_database(db_id, payload) do
+  results = env.body.results 
+
+  db = struct(Database, Enum.at(results, 0))
+  
+  IO.inspect(db.properties[:Task][:title])
+end
+```
+
