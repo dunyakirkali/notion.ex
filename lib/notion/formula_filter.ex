@@ -12,9 +12,9 @@ defmodule Notion.FormulaFilter do
             date: nil
 
   @type t() :: %__MODULE__{
-          text: TextFilter,
-          checkbox: CheckboxFilter,
-          number: NumberFilter,
-          date: DateFilter
+          text: TextFilter.t(),
+          checkbox: CheckboxFilter.t(),
+          number: NumberFilter.t(),
+          date: DateFilter.t()
         }
 end

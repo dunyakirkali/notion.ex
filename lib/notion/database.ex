@@ -3,7 +3,7 @@ defmodule Notion.Database do
   Database
   """
 
-  alias Notion.Property
+  alias Notion.{Property, RichText}
 
   @enforce_keys [:object]
   defstruct object: "database",
@@ -14,7 +14,7 @@ defmodule Notion.Database do
   @type t() :: %__MODULE__{
           object: String.t(),
           id: String.t(),
-          title: [RichText],
-          properties: %{String.t() => Property}
+          title: [RichText.t()],
+          properties: %{String.t() => Property.t()}
         }
 end

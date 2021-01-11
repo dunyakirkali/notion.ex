@@ -9,8 +9,8 @@ defmodule Notion.Filter do
             and: []
 
   @type t() :: %__MODULE__{
-          or: [PropertyFilter],
-          and: [PropertyFilter]
+          or: [PropertyFilter.t()],
+          and: [PropertyFilter.t()]
         }
 end
 

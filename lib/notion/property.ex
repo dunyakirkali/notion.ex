@@ -3,7 +3,7 @@ defmodule Notion.Property do
   Property
   """
 
-  alias Notion.User
+  alias Notion.{User, RichText}
 
   # @enforce_keys [:object]
 
@@ -33,10 +33,10 @@ defmodule Notion.Property do
   @type t() :: %__MODULE__{
           id: String.t(),
           type: Type.t(),
-          text: [RichText],
+          text: [RichText.t()],
           number: integer() | float(),
-          title: [RichText],
-          people: [User],
+          title: [RichText.t()],
+          people: [User.t()],
           checkbox: boolean(),
           url: String.t(),
           email: String.t(),

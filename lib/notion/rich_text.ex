@@ -12,6 +12,6 @@ defmodule Notion.RichText do
   @type t() :: %__MODULE__{
           plain_text: String.t(),
           href: String.t() | nil,
-          annotations: [Annotation]
+          annotations: [Annotation.t()]
         }
 end
