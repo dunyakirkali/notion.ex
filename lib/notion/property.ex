@@ -5,8 +5,6 @@ defmodule Notion.Property do
 
   alias Notion.{User, RichText}
 
-  # @enforce_keys [:object]
-
   import EnumType
 
   defenum Type do
