@@ -34,8 +34,8 @@ defmodule Notion do
     get("/pages/" <> page_id, query: query)
   end
 
-  def delete_page(page_id) do
-    delete("/pages/" <> page_id)
+  def update_page_properties(page_id, query) do
+    patch("/pages/" <> page_id, query)
   end
 
   # Database
