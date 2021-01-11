@@ -4,16 +4,16 @@ defmodule Notion.PropertyFilter do
   """
 
   alias Notion.{
-    PeopleFilter,
-    TextFilter,
-    NumberFilter,
     CheckboxFilter,
-    SelectFilter,
-    MultiSelectFilter,
     DateFilter,
     FilesFilter,
+    FormulaFilter,
+    MultiSelectFilter,
+    NumberFilter,
+    PeopleFilter,
     RelationFilter,
-    FormulaFilter
+    SelectFilter,
+    TextFilter
   }
 
   defstruct property: nil,
