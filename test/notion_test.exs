@@ -97,12 +97,15 @@ defmodule NotionTest do
   end
 
   test "update_page_properties" do
-    payload = Jason.encode!(%{
-      properties: %{
-        "In stock" => true
-      }
-    })
-    assert {:ok, %Tesla.Env{} = env} = Notion.update_page_properties("60bdc8bd-3880-44b8-a9cd-8a145b3ffbd7", payload)
+    payload =
+      Jason.encode!(%{
+        properties: %{
+          "In stock" => true
+        }
+      })
+
+    assert {:ok, %Tesla.Env{} = env} =
+             Notion.update_page_properties("60bdc8bd-3880-44b8-a9cd-8a145b3ffbd7", payload)
 
     page = struct(Page, env.body)
     assert env.status == 200
