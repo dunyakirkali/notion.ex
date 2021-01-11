@@ -33,10 +33,10 @@ defmodule NotionTest do
         |> json()
 
       %{
-        method: :delete,
-        url: "https://api.notion.com/v1/pages/b55c9c91-384d-452b-81db-d1ef79372b75"
+        method: :patch,
+        url: "https://api.notion.com/v1/pages/60bdc8bd-3880-44b8-a9cd-8a145b3ffbd7"
       } ->
-        "test/fixtures/pages/delete_page.json"
+        "test/fixtures/pages/update_page_properties.json"
         |> File.read!()
         |> Jason.decode!()
         |> json()
@@ -96,8 +96,13 @@ defmodule NotionTest do
     assert page.object == "page"
   end
 
-  test "delete_page" do
-    assert {:ok, %Tesla.Env{} = env} = Notion.delete_page("b55c9c91-384d-452b-81db-d1ef79372b75")
+  test "update_page_properties" do
+    payload = Jason.encode!(%{
+      properties: %{
+        "In stock" => true
+      }
+    })
+    assert {:ok, %Tesla.Env{} = env} = Notion.update_page_properties("60bdc8bd-3880-44b8-a9cd-8a145b3ffbd7", payload)
 
     page = struct(Page, env.body)
     assert env.status == 200
