@@ -14,6 +14,8 @@ defmodule Notion.Page do
   alias Notion.{Property}
 
   @derive Jason.Encoder
+
+  @enforce_keys [:object]
   defstruct object: "page",
             id: nil,
             parent: %{},

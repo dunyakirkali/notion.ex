@@ -1,5 +1,7 @@
 defmodule Notion.Client do
-  @moduledoc false
+  @moduledoc """
+  Client
+  """
 
   def new() do
     middleware = [
