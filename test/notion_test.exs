@@ -60,43 +60,43 @@ defmodule NotionTest do
         |> json()
     end)
 
-    :ok
+    {:ok, client: Notion.Client.new()}
   end
 
-  test "retrieve_user" do
+  test "retrieve_user", state do
     assert {:ok, %Tesla.Env{} = env} =
-             Notion.retrieve_user("01da9b00-e400-4959-91ce-af55307647e5")
+             Notion.retrieve_user(state[:client], "01da9b00-e400-4959-91ce-af55307647e5")
 
     user = struct(User, env.body)
     assert env.status == 200
     assert user.person.email == "avo@example.org"
   end
 
-  test "list_users" do
-    assert {:ok, %Tesla.Env{} = env} = Notion.list_users()
+  test "list_users", state do
+    assert {:ok, %Tesla.Env{} = env} = Notion.list_users(state[:client])
     assert env.status == 200
     assert Enum.count(env.body[:results]) == 2
   end
 
-  test "create_page" do
+  test "create_page", state do
     payload = Jason.encode!(%Page{})
-    assert {:ok, %Tesla.Env{} = env} = Notion.create_page(payload)
+    assert {:ok, %Tesla.Env{} = env} = Notion.create_page(state[:client], payload)
 
     page = struct(Page, env.body)
     assert env.status == 200
     assert page.object == "page"
   end
 
-  test "retrieve_page" do
+  test "retrieve_page", state do
     assert {:ok, %Tesla.Env{} = env} =
-             Notion.retrieve_page("b55c9c91-384d-452b-81db-d1ef79372b75")
+             Notion.retrieve_page(state[:client], "b55c9c91-384d-452b-81db-d1ef79372b75")
 
     page = struct(Page, env.body)
     assert env.status == 200
     assert page.object == "page"
   end
 
-  test "update_page_properties" do
+  test "update_page_properties", state do
     payload =
       Jason.encode!(%{
         properties: %{
@@ -105,27 +105,31 @@ defmodule NotionTest do
       })
 
     assert {:ok, %Tesla.Env{} = env} =
-             Notion.update_page_properties("60bdc8bd-3880-44b8-a9cd-8a145b3ffbd7", payload)
+             Notion.update_page_properties(
+               state[:client],
+               "60bdc8bd-3880-44b8-a9cd-8a145b3ffbd7",
+               payload
+             )
 
     page = struct(Page, env.body)
     assert env.status == 200
     assert page.object == "page"
   end
 
-  test "retrieve_database" do
+  test "retrieve_database", state do
     assert {:ok, %Tesla.Env{} = env} =
-             Notion.retrieve_database("668d797c-76fa-4934-9b05-ad288df2d136")
+             Notion.retrieve_database(state[:client], "668d797c-76fa-4934-9b05-ad288df2d136")
 
     page = struct(Page, env.body)
     assert env.status == 200
     assert page.object == "database"
   end
 
-  test "query_database" do
+  test "query_database", state do
     query = %Query{}
 
     assert {:ok, %Tesla.Env{} = env} =
-             Notion.query_database("668d797c-76fa-4934-9b05-ad288df2d136", query)
+             Notion.query_database(state[:client], "668d797c-76fa-4934-9b05-ad288df2d136", query)
 
     assert env.status == 200
     assert Enum.count(env.body[:results]) == 1

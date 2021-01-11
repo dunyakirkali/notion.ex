@@ -2,7 +2,7 @@ defmodule Notion.Group do
   @moduledoc """
   Group
   """
-  
+
   defstruct object: "group",
             id: nil,
             name: nil,

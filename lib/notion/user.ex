@@ -3,6 +3,12 @@ defmodule Notion.User do
   User
   """
 
+  use Tesla
+
+  def retrieve_user(client, id, query), do: get(client, "/users/" <> id, query: query)
+
+  def list_users(client, query), do: get(client, "/users", query: query)
+
   alias Notion.{Bot, Person}
 
   import EnumType

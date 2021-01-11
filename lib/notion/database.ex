@@ -3,6 +3,14 @@ defmodule Notion.Database do
   Database
   """
 
+  use Tesla
+
+  def retrieve_database(client, id, query \\ []),
+    do: get(client, "/databases/" <> id, query: query)
+
+  def query_database(client, id, query \\ []),
+    do: post(client, "/databases/" <> id <> "/query", query)
+
   alias Notion.{Property, RichText}
 
   @enforce_keys [:object]

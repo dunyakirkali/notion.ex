@@ -3,6 +3,14 @@ defmodule Notion.Page do
   Page
   """
 
+  use Tesla
+
+  def create_page(client, page), do: post(client, "/pages", page)
+
+  def retrieve_page(client, id, query \\ []), do: get(client, "/pages/" <> id, query: query)
+
+  def update_page_properties(client, id, query), do: patch(client, "/pages/" <> id, query)
+
   alias Notion.{Property}
 
   @derive Jason.Encoder

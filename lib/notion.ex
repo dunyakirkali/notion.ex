@@ -3,48 +3,25 @@ defmodule Notion do
   Notion
   """
 
-  use Tesla
+  alias Notion.User
 
-  plug(Tesla.Middleware.BaseUrl, "https://api.notion.com/v1")
-  plug(Tesla.Middleware.Timeout, timeout: 10_000)
+  defdelegate retrieve_user(client, id, query \\ []), to: User, as: :retrieve_user
 
-  plug(Tesla.Middleware.Headers, [
-    {"Authorization", "Bearer #{Application.fetch_env!(:notion, :api_key)}"}
-  ])
+  defdelegate list_users(client, query \\ []), to: User, as: :list_users
 
-  plug(Tesla.Middleware.JSON, engine_opts: [keys: :atoms])
+  alias Notion.Page
 
-  # User
+  defdelegate create_page(client, page), to: Page, as: :create_page
 
-  def retrieve_user(user_id, query \\ []) do
-    get("/users/" <> user_id, query: query)
-  end
+  defdelegate retrieve_page(client, id, query \\ []), to: Page, as: :retrieve_page
 
-  def list_users(query \\ []) do
-    get("/users", query: query)
-  end
+  defdelegate update_page_properties(client, id, query \\ []),
+    to: Page,
+    as: :update_page_properties
 
-  # Page
+  alias Notion.Database
 
-  def create_page(page) do
-    post("/pages", page)
-  end
+  defdelegate retrieve_database(client, id, query \\ []), to: Database, as: :retrieve_database
 
-  def retrieve_page(page_id, query \\ []) do
-    get("/pages/" <> page_id, query: query)
-  end
-
-  def update_page_properties(page_id, query) do
-    patch("/pages/" <> page_id, query)
-  end
-
-  # Database
-
-  def retrieve_database(database_id, query \\ []) do
-    get("/databases/" <> database_id, query: query)
-  end
-
-  def query_database(database_id, query \\ []) do
-    post("/databases/" <> database_id <> "/query", query)
-  end
+  defdelegate query_database(client, id, query \\ []), to: Database, as: :query_database
 end
