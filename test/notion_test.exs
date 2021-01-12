@@ -79,7 +79,7 @@ defmodule NotionTest do
   end
 
   test "create_page", state do
-    payload = Jason.encode!(%Page{})
+    payload = Jason.encode!(%Page{object: "page"})
     assert {:ok, %Tesla.Env{} = env} = Notion.create_page(state[:client], payload)
 
     page = struct(Page, env.body)
