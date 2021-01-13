@@ -2,6 +2,9 @@
 
 ![Code Quality](https://github.com/dunyakirkali/notion.ex/workflows/Code%20Quality/badge.svg)
 ![Continuous Integration](https://github.com/dunyakirkali/notion.ex/workflows/Continuous%20Integration/badge.svg)
+[![Coverage Status](https://coveralls.io/repos/dunyakirkali/notion.ex/badge.svg?branch=master)](https://coveralls.io/r/dunyakirkali/notion.ex?branch=master)
+[![Hex.pm version](https://img.shields.io/hexpm/v/notion.svg?style=flat-square)](https://hex.pm/packages/notion)
+[![Hex.pm downloads](https://img.shields.io/hexpm/dt/notion.svg)](https://hex.pm/packages/notion)
 
 A [Notion](https://www.notion.so/) client in Elixir.
 
