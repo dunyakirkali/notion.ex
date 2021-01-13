@@ -16,7 +16,9 @@ defmodule Notion.MixProject do
         "coveralls.html": :test
       ],
       aliases: aliases(),
-      dialyzer: [plt_add_apps: [:mix]]
+      dialyzer: [plt_add_apps: [:mix]],
+      description: description(),
+      package: package()
     ]
   end
 
@@ -39,6 +41,23 @@ defmodule Notion.MixProject do
       {:credo, "~> 1.5", only: [:dev, :test], runtime: false},
       {:doctor, "~> 0.17.0", only: :dev}
     ]
+  end
+
+  # Package Information
+  defp package do
+    [
+      files: ["test", "lib", "mix.exs", "README.md", "LICENSE*"],
+      maintainers: ["Dunya Kirkali"],
+      licenses: ["Apache 2.0"],
+      links: %{"GitHub" => "https://github.com/dunyakirkali/notion.ex"}
+    ]
+  end
+
+  # Package description
+  defp description do
+    """
+    Elixir's Notion API client
+    """
   end
 
   defp aliases do
