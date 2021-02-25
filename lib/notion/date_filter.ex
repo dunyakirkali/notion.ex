@@ -10,7 +10,7 @@ defmodule Notion.DateFilter do
             on_or_before: nil,
             is_empty: nil,
             is_not_empty: nil,
-            on_or_after: nil
+            on_or_after: nil,
             past_week: nil,
             past_month: nil,
             past_year: nil,
@@ -25,7 +25,7 @@ defmodule Notion.DateFilter do
           on_or_before: String.t(),
           is_empty: boolean(),
           is_not_empty: boolean(),
-          on_or_after: String.t()
+          on_or_after: String.t(),
           past_week: map(),
           past_month: map(),
           past_year: map(),

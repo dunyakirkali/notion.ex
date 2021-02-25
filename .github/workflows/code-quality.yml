@@ -15,4 +15,4 @@ jobs:
           otp-version: '22.3'
           elixir-version: '1.11.2'
       - run: mix deps.get
-      - run: mix code_quality
+      - run: mix check

@@ -15,7 +15,6 @@ defmodule Notion.MixProject do
         "coveralls.post": :test,
         "coveralls.html": :test
       ],
-      aliases: aliases(),
       dialyzer: [plt_add_apps: [:mix]],
       description: description(),
       package: package()
@@ -39,7 +38,8 @@ defmodule Notion.MixProject do
       {:dialyxir, "~> 1.0", only: [:dev], runtime: false},
       {:enum_type, "~> 1.1.3"},
       {:credo, "~> 1.5", only: [:dev, :test], runtime: false},
-      {:doctor, "~> 0.17.0", only: :dev}
+      {:doctor, "~> 0.17.0", only: :dev},
+      {:ex_check, "~> 0.14.0", only: [:dev], runtime: false}
     ]
   end
 
@@ -58,11 +58,5 @@ defmodule Notion.MixProject do
     """
     Elixir's Notion API client
     """
-  end
-
-  defp aliases do
-    [
-      code_quality: ["credo --strict", "dialyzer", "doctor"]
-    ]
   end
 end
