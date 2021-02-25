@@ -18,6 +18,8 @@ defmodule Notion.Page do
   @enforce_keys [:object]
   defstruct object: "page",
             id: nil,
+            created_time: nil,
+            last_edited_time: nil,
             parent: %{},
             properties: %{},
             database: nil,
@@ -26,6 +28,8 @@ defmodule Notion.Page do
   @type t() :: %__MODULE__{
           object: String.t(),
           id: String.t(),
+          created_time: String.t(),
+          last_edited_time: String.t(),
           parent: map(),
           properties: %{String.t() => Property.t()},
           database: String.t() | nil,

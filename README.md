@@ -82,3 +82,6 @@ with {:ok, json_string} <- Jason.encode(query),
 end
 ```
 
+## TODO
+
+- Implement all date fields
