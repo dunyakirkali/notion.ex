@@ -12,6 +12,7 @@ defmodule Notion.User do
   alias Notion.{Bot, Person}
 
   import EnumType
+  import Norm
 
   defenum Type do
     value(Person, "person")
@@ -36,4 +37,12 @@ defmodule Notion.User do
           name: String.t(),
           avatar_url: String.t() | nil
         }
+
+  def s, do: schema(%__MODULE__{
+    object: spec(is_binary()),
+    id: spec(is_binary()),
+    type: spec(is_binary()),
+    name: spec(is_binary()),
+    avatar_url: spec(is_binary())
+  })
 end
