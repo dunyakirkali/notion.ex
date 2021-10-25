@@ -27,7 +27,6 @@ defmodule Notion.Annotation do
     value(RedBackground, "red_background")
   end
 
-  @enforce_keys [:object]
   defstruct bold: nil,
             italic: nil,
             strikethrough: nil,
