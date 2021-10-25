@@ -3,7 +3,7 @@ defmodule Notion.MixProject do
 
   def project do
     [
-      app: :notion,
+      app: :notion_ex,
       version: "0.1.0",
       elixir: "~> 1.10",
       start_permanent: Mix.env() == :prod,
