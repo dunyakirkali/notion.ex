@@ -34,7 +34,7 @@ defmodule Notion.MixProject do
       {:tesla, "~> 1.5.0"},
       {:hackney, "~> 1.18.0"},
       {:jason, ">= 1.0.0"},
-      {:excoveralls, "~> 0.15.0", only: :test},
+      {:excoveralls, "~> 0.16.0", only: :test},
       {:dialyxir, "~> 1.0", only: [:dev], runtime: false},
       {:enum_type, "~> 1.1.3"},
       {:credo, "~> 1.5", only: [:dev, :test], runtime: false},
