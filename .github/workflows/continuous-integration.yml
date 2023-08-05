@@ -14,7 +14,6 @@ jobs:
       - uses: actions/checkout@v3.5.3
       - uses: erlef/setup-elixir@v1.8.1
         with:
-          version-type: 'strict'
           otp-version: ${{matrix.otp}}
           elixir-version: ${{matrix.elixir}}
       - uses: actions/cache@v1
