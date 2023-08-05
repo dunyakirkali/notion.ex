@@ -13,7 +13,7 @@ jobs:
       - uses: erlef/setup-elixir@v1
         with:
           version-type: 'strict'
-          otp-version: '22.3'
+          otp-version: '22.3.4.26'
           elixir-version: '1.11.2'
       - run: mix deps.get
       - run: mix check
