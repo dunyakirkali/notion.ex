@@ -39,7 +39,7 @@ defmodule Notion.MixProject do
       {:enum_type, "~> 1.1.3"},
       {:credo, "~> 1.5", only: [:dev, :test], runtime: false},
 #      {:doctor, "~> 0.17.0", only: :dev},
-      {:ex_check, "~> 0.15.0", only: [:dev], runtime: false},
+      {:ex_check, "~> 0.16.0", only: [:dev], runtime: false},
       {:ex_doc, ">= 0.0.0", only: :dev, runtime: false}
     ]
   end
