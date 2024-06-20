@@ -31,7 +31,7 @@ defmodule Notion.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:tesla, "~> 1.9.0"},
+      {:tesla, "~> 1.10.3"},
       {:hackney, "~> 1.20.0"},
       {:jason, ">= 1.0.0"},
       {:excoveralls, "~> 0.18.0", only: :test},
