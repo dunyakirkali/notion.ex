@@ -32,7 +32,7 @@ defmodule Notion.MixProject do
   defp deps do
     [
       {:tesla, "~> 1.15.2"},
-      {:hackney, "~> 1.24.0"},
+      {:hackney, "~> 1.25.0"},
       {:jason, ">= 1.0.0"},
       {:excoveralls, "~> 0.18.0", only: :test},
       {:dialyxir, "~> 1.0", only: [:dev], runtime: false},
