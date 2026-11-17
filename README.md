@@ -14,6 +14,8 @@ A [Notion](https://www.notion.so/) client in Elixir.
 
 ## Installation
 
+Requires Elixir 1.17 or later and Erlang/OTP 27 or later.
+
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed
 by adding `notion` to your list of dependencies in `mix.exs`:
 

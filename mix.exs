@@ -5,7 +5,7 @@ defmodule Notion.MixProject do
     [
       app: :notion_ex,
       version: "0.1.0",
-      elixir: "~> 1.10",
+      elixir: "~> 1.17",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       test_coverage: [tool: ExCoveralls],
@@ -32,7 +32,7 @@ defmodule Notion.MixProject do
   defp deps do
     [
       {:tesla, "~> 1.23.0"},
-      {:hackney, "~> 4.9.1"},
+      {:hackney, "~> 4.11.1"},
       {:jason, ">= 1.0.0"},
       {:excoveralls, "~> 0.18.0", only: :test},
       {:dialyxir, "~> 1.0", only: [:dev], runtime: false},

@@ -6,13 +6,13 @@ on:
 
 jobs:
   code-quality:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     name: Code Quality
     steps:
       - uses: actions/checkout@v4.2.2
       - uses: erlef/setup-beam@v1.18.2
         with:
-          otp-version: '26.2.5.9'
+          otp-version: '27.3'
           elixir-version: '1.18.3'
       - run: mix deps.get
       - run: mix check
